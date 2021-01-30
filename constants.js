@@ -54,6 +54,7 @@ const Pronouns = Object.freeze({
   ts: [ 'they/she', 'They/She' ],
   tt: [ 'they/them', 'They/Them' ],
   // --
+  ns: [ 'they/them [ns]', 'They/Them [ns]' ],
   any: 'Any pronouns',
   other: 'Other pronouns',
   ask: 'Ask me my pronouns',

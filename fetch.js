@@ -45,7 +45,7 @@ const cache = {}
 function fetchPronouns (id) {
   if (!cache[id]) {
     cache[id] = get(Endpoints.LOOKUP(id))
-      .then(data => data.pronouns ?? null)
+      .then(data => data.pronouns ?? "ns")
   }
   return cache[id]
 }
@@ -67,7 +67,7 @@ async function fetchPronounsBulk (ids) {
   if (toFetch.length > 0) {
     const data = await get(Endpoints.LOOKUP_BULK(toFetch))
     for (const id of toFetch) {
-      const pronouns = data[id] ?? null
+      const pronouns = data[id] ?? "ns"
       def[id].resolve(pronouns)
       res[id] = pronouns
     }
