@@ -25,42 +25,42 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-const { React } = require('powercord/webpack')
-const { Pronouns } = require('./constants.js')
+const {React} = require('powercord/webpack')
+const {Pronouns} = require('./constants.js')
 
-function wrapInHooks (fn) {
-  return function (...args) {
-    const owo = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentDispatcher.current
-    const ogUseMemo = owo.useMemo
-    const ogUseState = owo.useState
-    const ogUseEffect = owo.useEffect
-    const ogUseLayoutEffect = owo.useLayoutEffect
-    const ogUseRef = owo.useRef
+function wrapInHooks(fn) {
+    return function (...args) {
+        const owo = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentDispatcher.current
+        const ogUseMemo = owo.useMemo
+        const ogUseState = owo.useState
+        const ogUseEffect = owo.useEffect
+        const ogUseLayoutEffect = owo.useLayoutEffect
+        const ogUseRef = owo.useRef
 
-    owo.useMemo = (f) => f()
-    owo.useState = (v) => [ v, () => void 0 ]
-    owo.useEffect = () => null
-    owo.useLayoutEffect = () => null
-    owo.useRef = () => ({})
+        owo.useMemo = (f) => f()
+        owo.useState = (v) => [v, () => void 0]
+        owo.useEffect = () => null
+        owo.useLayoutEffect = () => null
+        owo.useRef = () => ({})
 
-    const res = fn(...args)
+        const res = fn(...args)
 
-    owo.useMemo = ogUseMemo
-    owo.useState = ogUseState
-    owo.useEffect = ogUseEffect
-    owo.useLayoutEffect = ogUseLayoutEffect
-    owo.useRef = ogUseRef
+        owo.useMemo = ogUseMemo
+        owo.useState = ogUseState
+        owo.useEffect = ogUseEffect
+        owo.useLayoutEffect = ogUseLayoutEffect
+        owo.useRef = ogUseRef
 
-    return res
-  }
+        return res
+    }
 }
 
-function formatPronouns (pronounsId, format) {
-  const pronouns = Pronouns[pronounsId]
+function formatPronouns(pronounsId, format) {
+    const pronouns = Pronouns[pronounsId]
 
-  return Array.isArray(pronouns)
-    ? format === 'pascal' ? pronouns[1] : pronouns[0]
-    : pronouns
+    return Array.isArray(pronouns)
+        ? format === 'pascal' ? pronouns[1] : pronouns[0]
+        : pronouns
 }
 
-module.exports = { wrapInHooks, formatPronouns }
+module.exports = {wrapInHooks, formatPronouns}

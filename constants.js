@@ -28,41 +28,41 @@
 const WEBSITE = 'https://pronoundb.org'
 
 const Endpoints = Object.freeze({
-  LOOKUP: (id) => `${WEBSITE}/api/v1/lookup?platform=discord&id=${id}`,
-  LOOKUP_BULK: (ids) => `${WEBSITE}/api/v1/lookup-bulk?platform=discord&ids=${ids.join(',')}`
+    LOOKUP: (id) => `${WEBSITE}/api/v1/lookup?platform=discord&id=${id}`,
+    LOOKUP_BULK: (ids) => `${WEBSITE}/api/v1/lookup-bulk?platform=discord&ids=${ids.join(',')}`
 })
 
 const Pronouns = Object.freeze({
-  unspecified: null,
-  avoid: 'Avoid pronouns, use my name',
-  any: 'Any pronouns',
-  // -- Contributors: please keep the list sorted alphabetically.
-  hh: [ 'he/him', 'He/Him' ],
-  hi: [ 'he/it', 'He/It' ],
-  hs: [ 'he/she', 'He/She' ],
-  ht: [ 'he/they', 'He/They' ],
-  ih: [ 'it/him', 'It/Him' ],
-  ii: [ 'it/its', 'It/Its' ],
-  is: [ 'it/she', 'It/She' ],
-  it: [ 'it/they', 'It/They' ],
-  shh: [ 'she/he', 'She/He' ],
-  sh: [ 'she/her', 'She/Her' ],
-  si: [ 'she/it', 'She/It' ],
-  st: [ 'she/they', 'She/They' ],
-  th: [ 'they/he', 'They/He' ],
-  ti: [ 'they/it', 'They/It' ],
-  ts: [ 'they/she', 'They/She' ],
-  tt: [ 'they/them', 'They/Them' ],
-  // --
-  ns: [ 'they/them [ns]', 'They/Them [ns]' ],
-  any: 'Any pronouns',
-  other: 'Other pronouns',
-  ask: 'Ask me my pronouns',
-  avoid: 'Avoid pronouns, use my name',
+    unspecified: null,
+    avoid: 'Avoid pronouns, use my name',
+    any: 'Any pronouns',
+    // -- Contributors: please keep the list sorted alphabetically.
+    hh: ['he/him', 'He/Him'],
+    hi: ['he/it', 'He/It'],
+    hs: ['he/she', 'He/She'],
+    ht: ['he/they', 'He/They'],
+    ih: ['it/him', 'It/Him'],
+    ii: ['it/its', 'It/Its'],
+    is: ['it/she', 'It/She'],
+    it: ['it/they', 'It/They'],
+    shh: ['she/he', 'She/He'],
+    sh: ['she/her', 'She/Her'],
+    si: ['she/it', 'She/It'],
+    st: ['she/they', 'She/They'],
+    th: ['they/he', 'They/He'],
+    ti: ['they/it', 'They/It'],
+    ts: ['they/she', 'They/She'],
+    tt: ['they/them', 'They/Them'],
+    // --
+    ns: ['they/them [ns]', 'They/Them [ns]'],
+    any: 'Any pronouns',
+    other: 'Other pronouns',
+    ask: 'Ask me my pronouns',
+    avoid: 'Avoid pronouns, use my name',
 })
 
 module.exports = {
-  WEBSITE,
-  Endpoints,
-  Pronouns
+    WEBSITE,
+    Endpoints,
+    Pronouns
 }
